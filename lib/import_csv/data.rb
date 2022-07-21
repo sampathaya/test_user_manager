@@ -8,7 +8,7 @@ module ImportCsv
     end
 
     def import
-      @rows.each do |row|
+      @rows.each_with_object([]) do |row, arry|
         person = Person.new(row).create
 
         row['Location']&.split(',')&.each do |location|
@@ -22,6 +22,8 @@ module ImportCsv
           aff = ::Affiliation.find_or_create_by(name: affiliation)
           person.affiliations << aff
         end
+
+        arry << person
       end
     end
   end

@@ -17,9 +17,9 @@ class HomeController < ApplicationController
     file = params[:home][:file]
     data = CSV.parse(file.to_io, headers: true, encoding: 'utf8')
 
-    ImportCsv::Data.new(data).import
+    records = ImportCsv::Data.new(data).import
 
-    redirect_to root_path
+    redirect_to root_path, notice: "#{records.length} row(s) imported."
   end
 
   private
