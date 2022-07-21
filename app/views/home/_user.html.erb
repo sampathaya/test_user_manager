@@ -1,0 +1,10 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= user.name %></td>
+  <td><%= user.locations.pluck(:name).join(',') %></td>
+  <td><%= user.species %></td>
+  <td><%= user.gender %></td>
+  <td><%= user.affiliations.pluck(:name).join(',') %></td>
+  <td><%= user.weapon %></td>
+  <td><%= user.vehicle %></td>
+</tr>

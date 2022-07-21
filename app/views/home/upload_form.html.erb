@@ -1,0 +1,12 @@
+<header class="main-content__header" role="banner">
+  <h1 class="main-content__page-title" id="page-title">
+    Import products from CSV
+  </h1>
+</header>
+
+<section class="main-content__body main-content__body">
+  <%= form_for :home, html: { class: "form" } do |f| %>
+    <p><%= f.file_field(:file) %></p>
+    <p><%= f.submit "Upload" %></p>
+  <% end %>
+</section>
